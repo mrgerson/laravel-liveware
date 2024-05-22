@@ -7,24 +7,29 @@
                     class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
                     <div class="px-6 py-3 flex justify-end">
                         {{-- <input name="message" wire:model.live="search" type="text"> --}}
-                        <x-input  placeholder="Buscar" wire:model.live="search"
-                            type="text"></x-input>
+                        <x-input placeholder="Buscar" wire:model.live="search" type="text"></x-input>
                     </div>
                     @if ($posts->count())
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
                                     <th scope="col"
-                                        class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                        wire:click="handleorden('id')">
                                         Id
+                                        <x-sort-icon :sort="$sort" :field="'id'" :direction="$direction" />
                                     </th>
                                     <th scope="col"
-                                        class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                        wire:click="handleorden('title')">
                                         Title
+                                        <x-sort-icon :sort="$sort" :field="'title'" :direction="$direction" />
                                     </th>
                                     <th scope="col"
-                                        class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                                        wire:click="handleorden('content')">
                                         Content
+                                        <x-sort-icon :sort="$sort" :field="'content'" :direction="$direction" />
                                     </th>
                                     <th scope="col" class="relative px-6 py-3">
                                         <span class="sr-only">Edit</span>
