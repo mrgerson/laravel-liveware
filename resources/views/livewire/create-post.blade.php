@@ -15,10 +15,12 @@
             <div class="mb-4">
                 <x-label value="Título del post"></x-label>
                 <x-input type="text" class="w-full" wire:model.defer="title" />
+                @error('title') <span class="error">{{ $message }}</span> @enderror
             </div>
             <div class="mb-4">
                 <x-label value="Contenido del post"></x-label>
                 <textarea  wire:model.defer="content" class="form-control w-full" rows="6"></textarea>
+                @error('content') <span class="error">{{ $message }}</span> @enderror
             </div>
 
         </x-slot>

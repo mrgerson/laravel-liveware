@@ -13,10 +13,21 @@ class CreatePost extends Component
 
     public function save()
     {
+
         Post::create([
             'title' => $this->title,
             'content' => $this->content
         ]);
+        /*limpiar los campos del formulario después de guardar */
+        $this->reset(['open', 'title', 'content']);
+
+        /* Emitir evento a todos los componentes */
+        //$this->dispatch('render');
+
+        // Emitir evento a un componente específico
+        $this->dispatch('show-posts', 'render');
+
+        $this->dispatch('alert', 'El Post se creó satisfactoriamente');
 
     }
 

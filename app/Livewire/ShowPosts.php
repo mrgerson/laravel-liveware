@@ -11,6 +11,9 @@ class ShowPosts extends Component
     public $sort = 'id';
     public $direction = 'desc';
 
+    /* eventos y oyentes */
+    protected $listeners = ['render' => 'render'];
+
     /* se carga cada vez que hay un cambio en el DOM */
     public function render()
     {
