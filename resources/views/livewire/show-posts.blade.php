@@ -6,8 +6,12 @@
                 <div
                     class="align-middle inline-block min-w-full shadow overflow-hidden sm:rounded-lg border-b border-gray-200">
                     <div class="px-6 py-3 flex justify-end">
-                        {{-- <input name="message" wire:model.live="search" type="text"> --}}
-                        <x-input placeholder="Buscar" wire:model.live="search" type="text"></x-input>
+                        <div class="">
+                            <x-input placeholder="Buscar" wire:model.live="search" type="text"></x-input>
+                        </div>
+                        <div class="ml-4">
+                            @livewire('create-post')
+                        </div>
                     </div>
                     @if ($posts->count())
                         <table class="min-w-full divide-y divide-gray-200">
